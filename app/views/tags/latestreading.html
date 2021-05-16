@@ -1,0 +1,45 @@
+ <div class="ui five cards">
+    <div class="card">
+      <div class="content">
+        <br />
+        <div class="header">${_station.name} </div>
+        <br />
+      </div>
+    </div>
+    <div class="card">
+      <div class="content">
+        <br />
+        <div class="header">Weather</div>
+        <br />
+        <p>${_latestReading.code}</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="content">
+        <br />
+        <div class="header">Temp</div>
+        <br />
+        <p>${_latestReading.temperature} C</p>
+        <p>${_latestReading.tempFahrenheit} F</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="content">
+        <br />
+        <div class="header">Wind</div>
+        <br />
+        <p>${_latestReading.beaufort} bft</p>
+        <p>${_latestReading.windCompass}</p>
+        <P>Feels like</P>
+        <p>${_latestReading.windChill}</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="content">
+        <br />
+        <div class="header">Pressure</div>
+        <br />
+        <p>${_latestReading.pressure} hPa</p>
+      </div>
+    </div>
+</div>
