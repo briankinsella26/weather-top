@@ -12,7 +12,7 @@ POST   /authenticate                                Accounts.authenticate
 GET    /logout                                      Accounts.logout
 
 GET     /dashboard                                  Dashboard.index
-GET     /dashboard/deletestation/{id}               Dashboard.deleteStation
+GET     /dashboard/{id}/deletestation/{stationId}   Dashboard.deleteStation
 POST    /dashboard/addstation                       Dashboard.addStation
 
 GET     /about                                      About.index
