@@ -1,6 +1,8 @@
 package utils;
 
 import javafx.util.Pair;
+import models.Reading;
+import models.Station;
 import org.w3c.dom.ls.LSOutput;
 
 import javax.xml.bind.SchemaOutputResolver;
@@ -122,4 +124,22 @@ public class Conversions {
     return direction;
   }
 
+  public static void setMinMaxValues(Station station) {
+    station.maxBeaufort = StationAnalytics.getMaxReading(station.readings, "beaufort").beaufort;
+    station.minBeaufort = StationAnalytics.getMinReading(station.readings, "beaufort").beaufort;
+    station.maxTemperature = StationAnalytics.getMaxReading(station.readings, "temperature").temperature;
+    station.minTemperature = StationAnalytics.getMinReading(station.readings, "temperature").temperature;
+    station.maxPressure = StationAnalytics.getMaxReading(station.readings, "pressure").pressure;
+    station.minPressure = StationAnalytics.getMinReading(station.readings, "pressure").pressure;
+  }
+
+  public static void performConversions(Reading latestReading) {
+    latestReading.tempFahrenheit = convertCelsiusToFahrenheit(latestReading.temperature);
+    convertKmHrToBeaufort(latestReading.windSpeed);
+    latestReading.beaufortLabel = Conversions.label;
+    latestReading.beaufort = Conversions.beaufort;
+    latestReading.windCompass = Conversions.getWindCompass(latestReading.windDirection);
+    latestReading.windChill = Conversions.getWindChill(latestReading.temperature, latestReading.windSpeed);
+    latestReading.weatherIcon = StationAnalytics.weatherIcons.get(latestReading.code);
+  }
 }

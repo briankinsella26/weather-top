@@ -2,7 +2,9 @@ package models;
 
 import play.db.jpa.Model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +16,8 @@ public class Member extends Model {
   public String email;
   public String password;
 
-//    public List<Station> stationList = new ArrayList<Station>();
+  @OneToMany(cascade = CascadeType.ALL)
+  public List<Station> stations = new ArrayList<Station>();
 
   public Member(String firstName, String lastName, String email, String password) {
     this.firstName = firstName;

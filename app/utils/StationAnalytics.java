@@ -1,10 +1,25 @@
 package utils;
 
+import play.Logger;
 import models.Reading;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class StationAnalytics {
+
+  public static Map<Integer, String> weatherIcons = new HashMap<>();
+  static {
+    weatherIcons.put(100, "sun icon");
+    weatherIcons.put(200, "cloud sun icon");
+    weatherIcons.put(300, "cloud icon");
+    weatherIcons.put(400, "cloud sun rain icon");
+    weatherIcons.put(500, "cloud showers heavy icon");
+    weatherIcons.put(600, "cloud rain icon");
+    weatherIcons.put(700, "snowflake icon");
+    weatherIcons.put(800, "bolt icon");
+  }
 
   public static Reading getLatestReading(List<Reading> readings) {
     Reading latestReading = null;
@@ -20,4 +35,47 @@ public class StationAnalytics {
     return latestReading;
   }
 
+  public static Reading getMaxReading(List<Reading> readings, String readingType) {
+    Reading maxReading = readings.get(0);
+    for (Reading reading : readings) {
+      if (readingType.equals("beaufort")) {
+        if ((reading.beaufort > maxReading.beaufort)) {
+          maxReading = reading;
+        }
+      } else if (readingType.equals("temperature")) {
+        if ((reading.temperature > maxReading.temperature)) {
+          maxReading = reading;
+        }
+      } else if (readingType.equals("pressure")) {
+        if ((reading.pressure > maxReading.pressure)) {
+          maxReading = reading;
+        }
+      } else {
+        Logger.info("invalid parameters passed");
+      }
+    }
+    return maxReading;
+  }
+
+  public static Reading getMinReading(List<Reading> readings, String readingType) {
+    Reading minReading = readings.get(0);
+      for (Reading reading : readings) {
+        if(readingType.equals("beaufort")) {
+          if ((reading.beaufort < minReading.beaufort)) {
+            minReading = reading;
+          }
+        } else if (readingType.equals("temperature")) {
+          if ((reading.temperature < minReading.temperature)) {
+            minReading = reading;
+          }
+        } else if (readingType.equals("pressure")) {
+          if ((reading.pressure < minReading.pressure)) {
+            minReading = reading;
+          }
+        } else {
+          Logger.info("invalid parameters passed");
+        }
+      }
+    return minReading;
+  }
 }

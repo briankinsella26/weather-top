@@ -7,12 +7,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 import play.db.jpa.Model;
-import utils.StationAnalytics;
 
 @Entity
-public class Station extends Model
-{
+public class Station extends Model {
   public String name;
+  public double minTemperature;
+  public double maxTemperature;
+  public double minBeaufort;
+  public double maxBeaufort;
+  public double minPressure;
+  public double maxPressure;
+  public Reading latestReading;
+
   @OneToMany(cascade = CascadeType.ALL)
   public List<Reading> readings = new ArrayList<Reading>();
   public double latitude;

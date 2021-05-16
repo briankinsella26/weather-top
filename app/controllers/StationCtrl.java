@@ -4,28 +4,31 @@ import models.Station;
 import models.Reading;
 import play.Logger;
 import play.mvc.Controller;
+import utils.Conversions;
 import utils.StationAnalytics;
 
-public class StationCtrl extends Controller
-{
+public class StationCtrl extends Controller {
+
   public static void index(Long id) {
     Logger.info ("Station id = " + id);
     Station station = Station.findById(id);
-    Reading latestReading = StationAnalytics.getLatestReading(station.readings);
+    station.latestReading = StationAnalytics.getLatestReading(station.readings);
+    Conversions.performConversions(station.latestReading);
+    Conversions.setMinMaxValues(station);
 
-    render("station.html", station, latestReading);
+    render("station.html", station, station.latestReading);
   }
 
   public static void deleteReading(Long id, Long readingId) {
     Logger.info ("Removing reading id: " + readingId);
-
     Station station = Station.findById(id);
+    Reading latestReading = StationAnalytics.getLatestReading(station.readings);
     Reading reading = Reading.findById(readingId);
     station.readings.remove(reading);
     station.save();
     reading.delete();
 
-    render("station.html", station);
+    redirect("/stations/" + id);
   }
 
   public static void addReading (Long id, int code, double temperature, double windSpeed, int windDirection, int pressure) {
