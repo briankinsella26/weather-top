@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 @Entity
 public class Reading extends Model {
   public int code;
+  public String weatherLabel;
   public double temperature;
   public double windSpeed;
   public int windDirection;

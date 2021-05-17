@@ -1,5 +1,6 @@
 package utils;
 
+import javafx.util.Pair;
 import play.Logger;
 import models.Reading;
 
@@ -8,17 +9,16 @@ import java.util.List;
 import java.util.Map;
 
 public class StationAnalytics {
-
-  public static Map<Integer, String> weatherIcons = new HashMap<>();
+  public static Map<Integer, Pair<String, String>> weatherIcons = new HashMap<>();
   static {
-    weatherIcons.put(100, "sun icon");
-    weatherIcons.put(200, "cloud sun icon");
-    weatherIcons.put(300, "cloud icon");
-    weatherIcons.put(400, "cloud sun rain icon");
-    weatherIcons.put(500, "cloud showers heavy icon");
-    weatherIcons.put(600, "cloud rain icon");
-    weatherIcons.put(700, "snowflake icon");
-    weatherIcons.put(800, "bolt icon");
+    weatherIcons.put(100, new Pair<>("sun icon", "Clear"));
+    weatherIcons.put(200, new Pair<>("cloud sun icon", "Partial Clouds"));
+    weatherIcons.put(300, new Pair<>("cloud icon", "Cloudy"));
+    weatherIcons.put(400, new Pair<>("cloud sun rain icon", "Light Showers"));
+    weatherIcons.put(500, new Pair<>("cloud showers heavy icon", "Heavy Showers"));
+    weatherIcons.put(600, new Pair<>("cloud rain icon", "Rain"));
+    weatherIcons.put(700, new Pair<>("snowflake icon", "Snow"));
+    weatherIcons.put(800, new Pair<>("bolt icon", "Thunder"));
   }
 
   public static Reading getLatestReading(List<Reading> readings) {

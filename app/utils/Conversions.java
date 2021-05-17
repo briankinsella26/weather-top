@@ -134,12 +134,13 @@ public class Conversions {
   }
 
   public static void performConversions(Reading latestReading) {
+    latestReading.weatherLabel = StationAnalytics.weatherIcons.get(latestReading.code).getValue();
     latestReading.tempFahrenheit = convertCelsiusToFahrenheit(latestReading.temperature);
     convertKmHrToBeaufort(latestReading.windSpeed);
     latestReading.beaufortLabel = Conversions.label;
     latestReading.beaufort = Conversions.beaufort;
     latestReading.windCompass = Conversions.getWindCompass(latestReading.windDirection);
     latestReading.windChill = Conversions.getWindChill(latestReading.temperature, latestReading.windSpeed);
-    latestReading.weatherIcon = StationAnalytics.weatherIcons.get(latestReading.code);
+    latestReading.weatherIcon = StationAnalytics.weatherIcons.get(latestReading.code).getKey();
   }
 }
