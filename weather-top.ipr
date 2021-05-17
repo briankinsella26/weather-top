@@ -149,4 +149,13 @@
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.6" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/tmp/classes" />
   </component>
+  <component name="libraryTable">
+    <library name="javafx.base">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/javafx.base.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
+  </component>
 </project>
