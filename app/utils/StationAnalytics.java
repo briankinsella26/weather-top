@@ -1,6 +1,5 @@
 package utils;
 
-import javafx.util.Pair;
 import play.Logger;
 import models.Reading;
 
