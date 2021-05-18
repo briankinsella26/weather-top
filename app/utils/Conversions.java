@@ -1,38 +1,14 @@
 package utils;
 
-import javafx.util.Pair;
 import models.Reading;
 import models.Station;
-import org.w3c.dom.ls.LSOutput;
-
-import javax.xml.bind.SchemaOutputResolver;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.TreeMap;
 
 public class Conversions {
   public static int beaufort;
   public static String label;
 
-//    public static HashMap<Pair<Integer, String>, String> beaufortRanges = new HashMap<>();
-//    static {
-//        beaufortRanges.put(new Pair<>(0, "Calm"), "1");
-//        beaufortRanges.put(new Pair<>(1, "Calm"), "1-5");
-//        beaufortRanges.put(new Pair<>(2, "Calm"), "6-11");
-//        beaufortRanges.put(new Pair<>(3, "Calm"), "12-19");
-//        beaufortRanges.put(new Pair<>(4, "Calm"), "20-28");
-//        beaufortRanges.put(new Pair<>(5, "Calm"), "29-38");
-//        beaufortRanges.put(new Pair<>(6, "Calm"), "39-49");
-//        beaufortRanges.put(new Pair<>(7, "Calm"), "50-61");
-//        beaufortRanges.put(new Pair<>(8, "Calm"), "62-74");
-//        beaufortRanges.put(new Pair<>(9, "Calm"), "75-88");
-//        beaufortRanges.put(new Pair<>(10, "Calm"), "89-102");
-//        beaufortRanges.put(new Pair<>(11, "Calm"), "103-117");
-//    }
 
   public static double convertCelsiusToFahrenheit(double tempCelsius) {
-
     return (tempCelsius * 9/5) +32;
   }
 
@@ -134,13 +110,13 @@ public class Conversions {
   }
 
   public static void performConversions(Reading latestReading) {
-    latestReading.weatherLabel = StationAnalytics.weatherIcons.get(latestReading.code).getValue();
+    latestReading.weatherLabel = StationAnalytics.weatherLabels.get(latestReading.code);
     latestReading.tempFahrenheit = convertCelsiusToFahrenheit(latestReading.temperature);
     convertKmHrToBeaufort(latestReading.windSpeed);
     latestReading.beaufortLabel = Conversions.label;
     latestReading.beaufort = Conversions.beaufort;
     latestReading.windCompass = Conversions.getWindCompass(latestReading.windDirection);
     latestReading.windChill = Conversions.getWindChill(latestReading.temperature, latestReading.windSpeed);
-    latestReading.weatherIcon = StationAnalytics.weatherIcons.get(latestReading.code).getKey();
+    latestReading.weatherIcon = StationAnalytics.weatherIcons.get(latestReading.code);
   }
 }

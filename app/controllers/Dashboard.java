@@ -1,18 +1,12 @@
 package controllers;
 
-import java.util.ArrayList;
 import java.util.List;
-
 import models.Member;
 import models.Station;
-import models.Reading;
 import play.Logger;
 import play.mvc.Controller;
 import utils.Conversions;
 import utils.StationAnalytics;
-
-import static utils.Conversions.convertCelsiusToFahrenheit;
-import static utils.Conversions.convertKmHrToBeaufort;
 
 public class Dashboard extends Controller {
   public static void index() {

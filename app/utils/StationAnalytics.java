@@ -9,16 +9,28 @@ import java.util.List;
 import java.util.Map;
 
 public class StationAnalytics {
-  public static Map<Integer, Pair<String, String>> weatherIcons = new HashMap<>();
+  public static Map<Integer, String> weatherIcons = new HashMap<>();
   static {
-    weatherIcons.put(100, new Pair<>("sun icon", "Clear"));
-    weatherIcons.put(200, new Pair<>("cloud sun icon", "Partial Clouds"));
-    weatherIcons.put(300, new Pair<>("cloud icon", "Cloudy"));
-    weatherIcons.put(400, new Pair<>("cloud sun rain icon", "Light Showers"));
-    weatherIcons.put(500, new Pair<>("cloud showers heavy icon", "Heavy Showers"));
-    weatherIcons.put(600, new Pair<>("cloud rain icon", "Rain"));
-    weatherIcons.put(700, new Pair<>("snowflake icon", "Snow"));
-    weatherIcons.put(800, new Pair<>("bolt icon", "Thunder"));
+    weatherIcons.put(100, "sun icon");
+    weatherIcons.put(200, "cloud sun icon");
+    weatherIcons.put(300, "cloud icon");
+    weatherIcons.put(400, "cloud sun rain icon");
+    weatherIcons.put(500, "cloud showers heavy icon");
+    weatherIcons.put(600, "cloud rain icon");
+    weatherIcons.put(700, "snowflake icon");
+    weatherIcons.put(800, "bolt icon");
+  }
+
+  public static Map<Integer, String> weatherLabels = new HashMap<>();
+  static {
+    weatherLabels.put(100, "Clear");
+    weatherLabels.put(200, "Partial Clouds");
+    weatherLabels.put(300, "Cloudy");
+    weatherLabels.put(400, "Light Showers");
+    weatherLabels.put(500, "Heavy Showers");
+    weatherLabels.put(600, "Rain");
+    weatherLabels.put(700, "Snow");
+    weatherLabels.put(800, "Thunder");
   }
 
   public static Reading getLatestReading(List<Reading> readings) {
