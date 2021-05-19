@@ -5,11 +5,13 @@
 # Home page
 GET     /                                           Start.index
 
-GET    /signup                                      Accounts.signup
-GET    /login                                       Accounts.login
-POST   /register                                    Accounts.register
-POST   /authenticate                                Accounts.authenticate
-GET    /logout                                      Accounts.logout
+GET     /signup                                     Accounts.signup
+GET     /login                                      Accounts.login
+POST    /register                                   Accounts.register
+POST    /authenticate                               Accounts.authenticate
+GET     /logout                                     Accounts.logout
+GET     /profile                                    Accounts.index
+POST    /editprofile                                Accounts.editProfile
 
 GET     /dashboard                                  Dashboard.index
 GET     /dashboard/{id}/deletestation/{stationId}   Dashboard.deleteStation

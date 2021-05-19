@@ -6,6 +6,12 @@ import play.mvc.Controller;
 
 public class Accounts extends Controller {
 
+  public static void index() {
+    Member member = Accounts.getLoggedInMember();
+    Logger.info ("Member = " + member.email);
+    render("profile.html", member);
+  }
+
   public static void signup() {
     render("signup.html");
   }
@@ -49,5 +55,26 @@ public class Accounts extends Controller {
       login();
     }
     return member;
+  }
+
+  public static void editProfile(String firstName, String lastName, String email, String password) {
+    Logger.info("Editing user: " +  email);
+    Member member = getLoggedInMember();
+    member.firstName = firstName;
+    member.lastName = lastName;
+    member.password = password;
+    member.email = email;
+    member.save();
+    redirect("/dashboard");
+  }
+
+  public static void editProfile(String firstName, String lastName, String email) {
+    Logger.info("Editing user: " +  email);
+    Member member = getLoggedInMember();
+    member.firstName = firstName;
+    member.lastName = lastName;
+    member.email = email;
+    member.save();
+    redirect("/dashboard");
   }
 }
