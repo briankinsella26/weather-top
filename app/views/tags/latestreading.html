@@ -1,4 +1,4 @@
-<div class="ui five cards">
+<div class="ui inverted cards ui five cards ">
   <div class="card">
     <div class="content">
       <br />
@@ -7,9 +7,8 @@
       </h4>
       <div class="header">${_station.name} </div>
       <br />
-      <p>Lat: ${_station.latitude}</p>
-      <p>Lng: ${_station.longitude}</p>
-
+      <div class="meta">Lat: ${_station.latitude}</div>
+      <div class="meta">Lng: ${_station.longitude}</div>
     </div>
   </div>
   <div class="card">
@@ -20,7 +19,7 @@
       </h4>
       <div class="header">Weather</div>
       <br />
-      <p>${_station.latestReading.weatherLabel}</p>
+      <div class="meta">${_station.latestReading.weatherLabel}</div>
     </div>
   </div>
   <div class="card">
@@ -31,10 +30,13 @@
       </h4>
       <div class="header">Temp</div>
       <br />
-      <p>${_station.latestReading.temperature} C</p>
-      <p>${_station.latestReading.tempFahrenheit} F</p>
-      <p>Max: ${_station.maxTemperature} C</p>
-      <p>Min: ${_station.minTemperature} C</p>
+      <div class="meta">${_station.latestReading.temperature} C</div>
+      <div class="meta">${_station.latestReading.tempFahrenheit} F</div>
+      <h6 class="ui blue icon header  ui right floated">
+        <i class="${_station.temperatureTrend}"></i>
+      </h6>
+      <div class="meta">Max: ${_station.maxTemperature} C</div>
+      <div class="meta">Min: ${_station.minTemperature} C</div>
     </div>
   </div>
   <div class="card">
@@ -45,12 +47,15 @@
       </h4>
       <div class="header">Wind</div>
       <br />
-      <p>${_station.latestReading.beaufort} bft</p>
-      <p>${_station.latestReading.windCompass}</p>
-      <P>Feels like</P>
-      <p>${_station.latestReading.windChill} C</p>
-      <p>Max: ${_station.maxBeaufort}</p>
-      <p>Min: ${_station.minBeaufort}</p>
+      <div class="meta">${_station.latestReading.beaufort} bft</div>
+      <div class="meta">${_station.latestReading.windCompass}</div>
+      <h6 class="ui green icon header  ui right floated">
+        <i class="${_station.windSpeedTrend}"></i>
+      </h6>
+      <div class="meta">Feels like</div>
+      <div class="meta">${_station.latestReading.windChill} C</div>
+      <div class="meta">Max: ${_station.maxBeaufort}</div>
+      <div class="meta">Min: ${_station.minBeaufort}</div>
     </div>
   </div>
   <div class="card">
@@ -61,9 +66,12 @@
       </h4>
       <div class="header">Pressure</div>
       <br />
-      <p>${_station.latestReading.pressure} hPa</p>
-      <p>Max: ${_station.maxPressure}</p>
-      <p>Min: ${_station.minPressure}</p>
+      <div class="meta">${_station.latestReading.pressure} hPa </div>
+      <div class="meta">Max: ${_station.maxPressure}</div>
+      <h6 class="ui orange icon header  ui right floated">
+        <i class="${_station.pressureTrend}"></i>
+      </h6>
+      <div class="meta">Min: ${_station.minPressure}</div>
     </div>
   </div>
 </div>

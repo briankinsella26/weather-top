@@ -89,4 +89,46 @@ public class StationAnalytics {
       }
     return minReading;
   }
+
+  public static String getWeatherTrendIcon(List<Reading> readings, String weatherParam) {
+    String trend = "";
+    if(readings.size() >= 3) {
+      double reading1 = 0;
+      double reading2 = 0;
+      double reading3 = 0;
+
+      System.out.println(weatherParam);
+
+      switch (weatherParam) {
+        case "temperature":
+          reading1 = readings.get(0).temperature;
+          reading2 = readings.get(1).temperature;
+          reading3 = readings.get(2).temperature;
+          break;
+        case "windSpeed":
+          reading1 = readings.get(0).windSpeed;
+          reading2 = readings.get(1).windSpeed;
+          reading3 = readings.get(2).windSpeed;
+          break;
+        case "pressure":
+          reading1 = readings.get(0).pressure;
+          reading2 = readings.get(1).pressure;
+          reading3 = readings.get(2).pressure;
+          break;
+        default:
+          System.out.println("Invalid weather params");
+      }
+
+      if ((reading2 > reading1) && (reading3 > reading2)) {
+        trend = "arrow up icon";
+      } else if ((reading2 < reading1) && (reading3 < reading2)) {
+        trend = "arrow down icon";
+      } else {
+        trend = "";
+      }
+    }
+    System.out.println("trend: " + trend);
+      return trend;
+  }
+
 }

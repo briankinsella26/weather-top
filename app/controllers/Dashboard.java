@@ -18,6 +18,9 @@ public class Dashboard extends Controller {
       station.latestReading = StationAnalytics.getLatestReading(station.readings);
       Conversions.performConversions(station.latestReading);
       Conversions.setMinMaxValues(station);
+      station.temperatureTrend = StationAnalytics.getWeatherTrendIcon(station.readings, "temperature");
+      station.windSpeedTrend = StationAnalytics.getWeatherTrendIcon(station.readings, "windSpeed");
+      station.pressureTrend = StationAnalytics.getWeatherTrendIcon(station.readings, "pressure");
     }
 
     render("dashboard.html", member, stations);
