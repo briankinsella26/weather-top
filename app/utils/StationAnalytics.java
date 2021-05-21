@@ -2,7 +2,7 @@ package utils;
 
 import play.Logger;
 import models.Reading;
-
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -34,11 +34,12 @@ public class StationAnalytics {
 
   public static Reading getLatestReading(List<Reading> readings) {
     Reading latestReading = null;
-    long latestId = 0;
     if(readings.size() > 0) {
+      Date latestDate = new Date();
+      latestDate.setTime(0);
       for (Reading reading : readings) {
-        if (reading.id > latestId) {
-          latestId = reading.id;
+        if (reading.date.compareTo(latestDate) > 0) {
+          latestDate = reading.date;
           latestReading = reading;
         }
       }
@@ -127,5 +128,4 @@ public class StationAnalytics {
     }
       return trend;
   }
-
 }
