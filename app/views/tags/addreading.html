@@ -6,11 +6,11 @@
     </div>
     <div class="field">
       <label>Temperature</label>
-      <input placeholder="00.0C" type="number" step="any" name="temperature" required="required">
+      <input placeholder="00.0C" type="number" step="any" name="temperature" min="-100" max="100" required="required">
     </div>
     <div class="field">
       <label>Wind Speed</label>
-      <input placeholder="00.00kMh" type="number" step="any" name="windSpeed" required="required">
+      <input placeholder="00.00kMh" type="number" step="any" name="windSpeed" min="0" max="500" required="required">
     </div>
   </div>
   <div class="three fields">
@@ -20,7 +20,7 @@
     </div>
     <div class="field">
       <label>Pressure</label>
-      <input placeholder="000hPa" type="number" name="pressure" required="required">
+      <input placeholder="000hPa" type="number" name="pressure" min="500" max="1500" required="required">
     </div>
   </div>
   <button class="ui blue submit button">Submit Report</button>

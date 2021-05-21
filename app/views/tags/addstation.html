@@ -2,15 +2,15 @@
   <div class="three fields">
     <div class="field">
       <label>Name</label>
-      <input placeholder="Name" type="text" name="name" required="required">
+      <input placeholder="Name" type="text" name="name" minlength="1" maxlength="24" required="required">
     </div>
     <div class="field">
       <label>Latitude</label>
-      <input placeholder="00.00" type="number" step="any" name="latitude" required="required">
+      <input placeholder="00.00" type="number" step="any" name="latitude" min="-90" max="90" required="required">
     </div>
     <div class="field">
       <label>Longitude</label>
-      <input placeholder="00.00" type="number" step="any" name="longitude" required="required">
+      <input placeholder="00.00" type="number" step="any" name="longitude" min="-180" max="180" required="required">
     </div>
   </div>
   <button class="ui blue submit button">Add Station</button>
