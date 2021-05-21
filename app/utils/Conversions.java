@@ -7,7 +7,6 @@ public class Conversions {
   public static int beaufort;
   public static String label;
 
-
   public static double convertCelsiusToFahrenheit(double tempCelsius) {
     return Math.round((tempCelsius * 9/5) +32);
   }
@@ -61,7 +60,6 @@ public class Conversions {
 
   public static String getWindCompass(int windDirection) {
     String direction = "";
-
     if((windDirection >= 348.75 && windDirection <= 360) || (windDirection >= 0 && windDirection < 11.25)){
       direction = "N";
     } else if(windDirection >= 11.25 && windDirection < 33.75) {

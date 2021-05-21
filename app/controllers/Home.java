@@ -12,6 +12,7 @@ public class Home extends Controller {
       String memberId = session.get("logged_in_memberId");
       member = Member.findById(Long.parseLong(memberId));
     }
+
     render("home.html", member);
   }
 }

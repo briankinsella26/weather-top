@@ -1,7 +1,6 @@
 package models;
 
 import play.db.jpa.Model;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
@@ -10,7 +9,6 @@ import java.util.List;
 
 @Entity
 public class Member extends Model {
-
   public String firstName;
   public String lastName;
   public String email;
@@ -33,5 +31,4 @@ public class Member extends Model {
   public boolean checkPassword(String password) {
     return this.password.equals(password);
   }
-
 }

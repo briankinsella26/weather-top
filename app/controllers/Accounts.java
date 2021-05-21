@@ -9,6 +9,7 @@ public class Accounts extends Controller {
   public static void index() {
     Member member = Accounts.getLoggedInMember();
     Logger.info ("Member = " + member.email);
+
     render("profile.html", member);
   }
 
@@ -25,6 +26,7 @@ public class Accounts extends Controller {
     Member member = new Member(firstName, lastName, email, password);
     member.save();
     session.put("logged_in_memberId", member.id);
+
     redirect("/dashboard");
   }
 
@@ -34,15 +36,18 @@ public class Accounts extends Controller {
     if((member != null) && (member.checkPassword(password))) {
       Logger.info("Authentication successful");
       session.put("logged_in_memberId", member.id);
+
       redirect("/dashboard");
     } else {
       Logger.info("Authentication failed");
+
       redirect("/login");
     }
   }
 
   public static void logout() {
     session.clear();
+
     redirect("/");
   }
 
@@ -65,6 +70,7 @@ public class Accounts extends Controller {
     member.password = password;
     member.email = email;
     member.save();
+
     redirect("/dashboard");
   }
 
@@ -75,6 +81,7 @@ public class Accounts extends Controller {
     member.lastName = lastName;
     member.email = email;
     member.save();
+
     redirect("/dashboard");
   }
 }
