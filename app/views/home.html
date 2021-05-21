@@ -1,7 +1,12 @@
 #{extends 'main.html' /}
-#{set title:'Start' /}
+#{set title:'Home' /}
 
-#{welcomemenu id:"start"/}
+#{if member == null}
+  #{welcomemenu id:"home"/}
+#{/if}
+#{else}
+  #{menu id:"home"/}
+#{/else}
 
 <section class="ui center aligned middle aligned segment">
   <h1 class="ui header">
