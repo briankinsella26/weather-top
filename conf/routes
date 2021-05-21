@@ -3,7 +3,7 @@
 #
 
 # Home page
-GET     /                                           Start.index
+GET     /                                           Home.index
 
 GET     /signup                                     Accounts.signup
 GET     /login                                      Accounts.login

@@ -9,7 +9,7 @@ public class Conversions {
 
 
   public static double convertCelsiusToFahrenheit(double tempCelsius) {
-    return (tempCelsius * 9/5) +32;
+    return Math.round((tempCelsius * 9/5) +32);
   }
 
   public static int convertKmHrToBeaufort(double windSpeed) {
@@ -101,22 +101,26 @@ public class Conversions {
   }
 
   public static void setMinMaxValues(Station station) {
-    station.maxBeaufort = StationAnalytics.getMaxReading(station.readings, "beaufort").beaufort;
-    station.minBeaufort = StationAnalytics.getMinReading(station.readings, "beaufort").beaufort;
-    station.maxTemperature = StationAnalytics.getMaxReading(station.readings, "temperature").temperature;
-    station.minTemperature = StationAnalytics.getMinReading(station.readings, "temperature").temperature;
-    station.maxPressure = StationAnalytics.getMaxReading(station.readings, "pressure").pressure;
-    station.minPressure = StationAnalytics.getMinReading(station.readings, "pressure").pressure;
+    if (station.readings.size() > 0) {
+      station.maxBeaufort = StationAnalytics.getMaxReading(station.readings, "beaufort").beaufort;
+      station.minBeaufort = StationAnalytics.getMinReading(station.readings, "beaufort").beaufort;
+      station.maxTemperature = StationAnalytics.getMaxReading(station.readings, "temperature").temperature;
+      station.minTemperature = StationAnalytics.getMinReading(station.readings, "temperature").temperature;
+      station.maxPressure = StationAnalytics.getMaxReading(station.readings, "pressure").pressure;
+      station.minPressure = StationAnalytics.getMinReading(station.readings, "pressure").pressure;
+    }
   }
 
   public static void performConversions(Reading latestReading) {
-    latestReading.weatherLabel = StationAnalytics.weatherLabels.get(latestReading.code);
-    latestReading.tempFahrenheit = convertCelsiusToFahrenheit(latestReading.temperature);
-    convertKmHrToBeaufort(latestReading.windSpeed);
-    latestReading.beaufortLabel = Conversions.label;
-    latestReading.beaufort = Conversions.beaufort;
-    latestReading.windCompass = Conversions.getWindCompass(latestReading.windDirection);
-    latestReading.windChill = Conversions.getWindChill(latestReading.temperature, latestReading.windSpeed);
-    latestReading.weatherIcon = StationAnalytics.weatherIcons.get(latestReading.code);
+    if(latestReading != null) {
+      latestReading.weatherLabel = StationAnalytics.weatherLabels.get(latestReading.code);
+      latestReading.tempFahrenheit = convertCelsiusToFahrenheit(latestReading.temperature);
+      convertKmHrToBeaufort(latestReading.windSpeed);
+      latestReading.beaufortLabel = Conversions.label;
+      latestReading.beaufort = Conversions.beaufort;
+      latestReading.windCompass = Conversions.getWindCompass(latestReading.windDirection);
+      latestReading.windChill = Conversions.getWindChill(latestReading.temperature, latestReading.windSpeed);
+      latestReading.weatherIcon = StationAnalytics.weatherIcons.get(latestReading.code);
+    }
   }
 }

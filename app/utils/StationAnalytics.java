@@ -97,8 +97,6 @@ public class StationAnalytics {
       double reading2 = 0;
       double reading3 = 0;
 
-      System.out.println(weatherParam);
-
       switch (weatherParam) {
         case "temperature":
           reading1 = readings.get(0).temperature;
@@ -127,7 +125,6 @@ public class StationAnalytics {
         trend = "";
       }
     }
-    System.out.println("trend: " + trend);
       return trend;
   }
 

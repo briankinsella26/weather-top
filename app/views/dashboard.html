@@ -9,7 +9,12 @@
 
 #{list items:stations, as:'station'}
 <section class="ui segment">
-  #{latestreading station:station /}
+  #{if station.readings.size() > 0}
+    #{latestreading station:station /}
+  #{/if}
+  #{else}
+    <h2 class="ui header">${station.name}</h2>
+  #{/else}
   <div class="ui divider"></div>
   <a href="/stations/${station.id}" class="ui icon button"> <i class="folder icon"></i> </a>
   <a href="/dashboard/${member.id}/deletestation/${station.id}" class="ui icon button">

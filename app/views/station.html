@@ -7,7 +7,9 @@
   <h2 class="ui header">
     ${station.name}
   </h2>
-  #{latestreading station:station /}
-  #{listreadings station:station /}
+  #{if station.readings.size() > 0}
+    #{latestreading station:station /}
+    #{listreadings station:station /}
+  #{/if}
   #{addreading station:station /}
 </section>

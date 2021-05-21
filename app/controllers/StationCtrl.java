@@ -12,14 +12,16 @@ public class StationCtrl extends Controller {
   public static void index(Long id) {
     Logger.info ("Station id = " + id);
     Station station = Station.findById(id);
-    station.latestReading = StationAnalytics.getLatestReading(station.readings);
-    Conversions.performConversions(station.latestReading);
-    Conversions.setMinMaxValues(station);
-    station.temperatureTrend = StationAnalytics.getWeatherTrendIcon(station.readings, "temperature");
-    station.windSpeedTrend = StationAnalytics.getWeatherTrendIcon(station.readings, "windSpeed");
-    station.pressureTrend = StationAnalytics.getWeatherTrendIcon(station.readings, "pressure");
+    if(station.readings.size() > 0 ) {
+      station.latestReading = StationAnalytics.getLatestReading(station.readings);
+      Conversions.performConversions(station.latestReading);
+      Conversions.setMinMaxValues(station);
+      station.temperatureTrend = StationAnalytics.getWeatherTrendIcon(station.readings, "temperature");
+      station.windSpeedTrend = StationAnalytics.getWeatherTrendIcon(station.readings, "windSpeed");
+      station.pressureTrend = StationAnalytics.getWeatherTrendIcon(station.readings, "pressure");
+    }
 
-    render("station.html", station, station.latestReading);
+    render("station.html", station);
   }
 
   public static void deleteReading(Long id, Long readingId) {
