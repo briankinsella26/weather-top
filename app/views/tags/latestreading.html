@@ -1,35 +1,35 @@
 <div class="ui inverted cards ui five cards ">
   <div class="card">
     <div class="content">
-      <br />
+      <br/>
       <h4 class="ui purple icon header  ui right floated">
         <i class="map marker icon"></i>
       </h4>
-      <div class="header">${_station.name} </div>
-      <br />
+      <div class="header">${_station.name}</div>
+      <br/>
       <div class="meta">Lat: ${_station.latitude}</div>
       <div class="meta">Lng: ${_station.longitude}</div>
     </div>
   </div>
   <div class="card">
     <div class="content">
-      <br />
+      <br/>
       <h4 class="ui red icon header  ui right floated">
         <i class="${_station.latestReading.weatherIcon}"></i>
       </h4>
       <div class="header">Weather</div>
-      <br />
+      <br/>
       <div class="meta">${_station.latestReading.weatherLabel}</div>
     </div>
   </div>
   <div class="card">
     <div class="content">
-      <br />
+      <br/>
       <h4 class="ui blue icon header  ui right floated">
         <i class="temperature low icon"></i>
       </h4>
       <div class="header">Temp</div>
-      <br />
+      <br/>
       <div class="meta">${_station.latestReading.temperature} C</div>
       <div class="meta">${_station.latestReading.tempFahrenheit} F</div>
       <h6 class="ui blue icon header  ui right floated">
@@ -41,12 +41,12 @@
   </div>
   <div class="card">
     <div class="content">
-      <br />
+      <br/>
       <h4 class="ui green icon header  ui right floated">
         <i class="wind icon"></i>
       </h4>
       <div class="header">Wind</div>
-      <br />
+      <br/>
       <div class="meta">${_station.latestReading.beaufort} bft</div>
       <div class="meta">${_station.latestReading.windCompass}</div>
       <h6 class="ui green icon header  ui right floated">
@@ -60,13 +60,13 @@
   </div>
   <div class="card">
     <div class="content">
-      <br />
+      <br/>
       <h4 class="ui orange icon header  ui right floated">
         <i class="tachometer alternate icon"></i>
       </h4>
       <div class="header">Pressure</div>
-      <br />
-      <div class="meta">${_station.latestReading.pressure} hPa </div>
+      <br/>
+      <div class="meta">${_station.latestReading.pressure} hPa</div>
       <div class="meta">Max: ${_station.maxPressure}</div>
       <h6 class="ui orange icon header  ui right floated">
         <i class="${_station.pressureTrend}"></i>

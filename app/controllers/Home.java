@@ -3,6 +3,7 @@ package controllers;
 import models.Member;
 import play.Logger;
 import play.mvc.Controller;
+import utils.RandomFacts;
 
 public class Home extends Controller {
   public static void index() {
@@ -12,7 +13,8 @@ public class Home extends Controller {
       String memberId = session.get("logged_in_memberId");
       member = Member.findById(Long.parseLong(memberId));
     }
+    String randomFact = RandomFacts.getRandomFact();
 
-    render("home.html", member);
+    render("home.html", member, randomFact);
   }
 }

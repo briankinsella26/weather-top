@@ -7,11 +7,14 @@ import play.mvc.Controller;
 import utils.Conversions;
 import utils.StationAnalytics;
 
+import java.util.Comparator;
+
 public class StationCtrl extends Controller {
 
   public static void index(Long id) {
     Station station = Station.findById(id);
-    if(station.readings.size() > 0 ) {
+    if (station.readings.size() > 0) {
+      station.readings.sort(Comparator.comparing(reading -> reading.date));
       station.latestReading = StationAnalytics.getLatestReading(station.readings);
       Conversions.performConversions(station.latestReading);
       Conversions.setMinMaxValues(station);
@@ -24,7 +27,7 @@ public class StationCtrl extends Controller {
   }
 
   public static void deleteReading(Long id, Long readingId) {
-    Logger.info ("Removing reading id: " + readingId);
+    Logger.info("Removing reading id: " + readingId);
     Station station = Station.findById(id);
     Reading latestReading = StationAnalytics.getLatestReading(station.readings);
     Reading reading = Reading.findById(readingId);
@@ -35,8 +38,8 @@ public class StationCtrl extends Controller {
     redirect("/stations/" + id);
   }
 
-  public static void addReading (Long id, int code, double temperature, double windSpeed, int windDirection, int pressure) {
-    Logger.info ("Adding new reading");
+  public static void addReading(Long id, int code, double temperature, double windSpeed, int windDirection, int pressure) {
+    Logger.info("Adding new reading");
     Reading reading = new Reading(code, temperature, windSpeed, windDirection, pressure);
     Station station = Station.findById(id);
     station.readings.add(reading);

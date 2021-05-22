@@ -8,7 +8,7 @@ public class Accounts extends Controller {
 
   public static void index() {
     Member member = Accounts.getLoggedInMember();
-    Logger.info ("Member = " + member.email);
+    Logger.info("Member = " + member.email);
 
     render("profile.html", member);
   }
@@ -22,7 +22,7 @@ public class Accounts extends Controller {
   }
 
   public static void register(String firstName, String lastName, String email, String password) {
-    Logger.info("Register user: " +  email);
+    Logger.info("Register user: " + email);
     Member member = new Member(firstName, lastName, email, password);
     member.save();
     session.put("logged_in_memberId", member.id);
@@ -33,7 +33,7 @@ public class Accounts extends Controller {
   public static void authenticate(String email, String password) {
     Logger.info("Attempting to authenticate user: " + email);
     Member member = Member.findByEmail(email);
-    if((member != null) && (member.checkPassword(password))) {
+    if ((member != null) && (member.checkPassword(password))) {
       Logger.info("Authentication successful");
       session.put("logged_in_memberId", member.id);
 
@@ -53,7 +53,7 @@ public class Accounts extends Controller {
 
   public static Member getLoggedInMember() {
     Member member = null;
-    if(session.contains("logged_in_memberId")) {
+    if (session.contains("logged_in_memberId")) {
       String memberId = session.get("logged_in_memberId");
       member = Member.findById(Long.parseLong(memberId));
     } else {
@@ -63,7 +63,7 @@ public class Accounts extends Controller {
   }
 
   public static void editProfile(String firstName, String lastName, String email, String password) {
-    Logger.info("Editing user: " +  email);
+    Logger.info("Editing user: " + email);
     Member member = getLoggedInMember();
     member.firstName = firstName;
     member.lastName = lastName;
@@ -75,7 +75,7 @@ public class Accounts extends Controller {
   }
 
   public static void editProfile(String firstName, String lastName, String email) {
-    Logger.info("Editing user: " +  email);
+    Logger.info("Editing user: " + email);
     Member member = getLoggedInMember();
     member.firstName = firstName;
     member.lastName = lastName;
