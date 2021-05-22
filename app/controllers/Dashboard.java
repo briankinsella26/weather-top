@@ -18,10 +18,10 @@ public class Dashboard extends Controller {
 
     for(Station station: stations) {
       if(station.readings.size() > 0) {
-        station.readings.sort(Comparator.comparing(reading -> reading.date));
         station.latestReading = StationAnalytics.getLatestReading(station.readings);
         Conversions.performConversions(station.latestReading);
         Conversions.setMinMaxValues(station);
+        station.readings.sort(Comparator.comparing(reading -> reading.date));
         station.temperatureTrend = StationAnalytics.getWeatherTrendIcon(station.readings, "temperature");
         station.windSpeedTrend = StationAnalytics.getWeatherTrendIcon(station.readings, "windSpeed");
         station.pressureTrend = StationAnalytics.getWeatherTrendIcon(station.readings, "pressure");
