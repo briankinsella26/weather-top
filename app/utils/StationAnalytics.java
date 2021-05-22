@@ -100,19 +100,19 @@ public class StationAnalytics {
 
       switch (weatherParam) {
         case "temperature":
-          reading1 = readings.get(0).temperature;
-          reading2 = readings.get(1).temperature;
-          reading3 = readings.get(2).temperature;
+          reading1 = readings.get(readings.size()-3).temperature;
+          reading2 = readings.get(readings.size()-2).temperature;
+          reading3 = readings.get(readings.size()-1).temperature;
           break;
         case "windSpeed":
-          reading1 = readings.get(0).windSpeed;
-          reading2 = readings.get(1).windSpeed;
-          reading3 = readings.get(2).windSpeed;
+          reading1 = readings.get(readings.size()-3).windSpeed;
+          reading2 = readings.get(readings.size()-2).windSpeed;
+          reading3 = readings.get(readings.size()-1).windSpeed;
           break;
         case "pressure":
-          reading1 = readings.get(0).pressure;
-          reading2 = readings.get(1).pressure;
-          reading3 = readings.get(2).pressure;
+          reading1 = readings.get(readings.size()-3).pressure;
+          reading2 = readings.get(readings.size()-2).pressure;
+          reading3 = readings.get(readings.size()-1).pressure;
           break;
         default:
           System.out.println("Invalid weather params");
