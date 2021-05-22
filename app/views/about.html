@@ -1,9 +1,78 @@
 #{extends 'main.html' /}
 #{set title:'About' /}
 #{menu id:"about"/}
-
-<section class="ui center aligned middle aligned segment">
-  <p>
-    About the weather top app - add graphics
-  </p>
-</section>
+<header class="ui centered container">
+  <br/>
+  <h1 class="ui center aligned header">Quickstart guide</h1>
+</header>
+<div class="ui very relaxed divided items">
+  <div class="item ui raised segment">
+    <div class="ui large image">
+      <img src="public/images/weathertop-1000.png">
+    </div>
+    <div class="ui very padded text container segment">
+      <a class="ui header " href="/dashboard">Take your Reading</a>
+      <div class="description">
+        <br/>
+        <p>The WeatherTop 1000 modular weather station is designed to capture sets of meteorological readings. Readings
+          are displayed on a simple LCD display. Simply capture these readings at any point in time and input them into
+          the WeatherTop application.</p>
+      </div>
+    </div>
+  </div>
+  <div class="item ui raised segment">
+    <div class="ui large image">
+      <img src="public/images/stations_img.png">
+    </div>
+    <div class="ui very padded text container segment">
+      <a class="ui header" href="/dashboard">Add a station</a>
+      <div class="description">
+        <br/>
+        <p>Add a separate station for every WeatherTop 1000 device. You can add an unlimited number of stations. Just
+          give the station a unique name, enter the co-ordinates, and your station is set up. All you then need to do,is
+          input readings for each station. You can delete any station by clicking the delete button under the station in
+          the dashboard.</p>
+      </div>
+    </div>
+  </div>
+  <br/>
+  <div class="item ui raised segment">
+    <div class="ui large image">
+      <img src="public/images/readings_img.png">
+    </div>
+    <div class="ui very padded text container segment">
+      <a class="ui header" href="/dashboard">Add a reading</a>
+      <div class="description">
+        <br/>
+        <p>Adding readings on a regular basis increases the accuracy of your weather data. Simple click the folder icon
+          under the station in your dashboard to display all readings to date. Simply enter the data for your new
+          reading, and click submit report. You can delete any reading by clicking the delete button beside that
+          reading.</p>
+      </div>
+    </div>
+  </div>
+  <br/>
+  <div class="item ui raised segment">
+    <div class="ui large image">
+      <img src="public/images/trends.png">
+    </div>
+    <div class="ui very padded text container segment">
+      <a class="ui header" href="/dashboard">View Station Weather Data</a>
+      <div class="description">
+        <br/>
+        <p>The latest weather data is displayed for each station. Also displayed is the minimum and maximum values for
+          temperature, wind, and pressure for each station, and trend arrows that indicate whether that particular value
+          is increasing or decreasing over the past three readings.</p>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div class="ui center aligned header">
+      <br/>
+      <br/>
+      <p>WeatherTop Inc</p>
+      <br/>
+      <br/>
+    </div>
+  </footer>
+</div>
