@@ -38,7 +38,6 @@ public class Dashboard extends Controller {
     member.stations.remove(station);
     member.save();
     station.delete();
-
     redirect("/dashboard");
   }
 
@@ -49,7 +48,6 @@ public class Dashboard extends Controller {
     member.stations.add(station);
     station.save();
     member.save();
-
     redirect("/dashboard");
   }
 }

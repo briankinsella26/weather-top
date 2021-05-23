@@ -6,7 +6,6 @@ import play.Logger;
 import play.mvc.Controller;
 import utils.Conversions;
 import utils.StationAnalytics;
-
 import java.util.Comparator;
 
 public class StationCtrl extends Controller {
@@ -22,7 +21,6 @@ public class StationCtrl extends Controller {
       station.windSpeedTrend = StationAnalytics.getWeatherTrendIcon(station.readings, "windSpeed");
       station.pressureTrend = StationAnalytics.getWeatherTrendIcon(station.readings, "pressure");
     }
-
     render("station.html", station);
   }
 
@@ -34,7 +32,6 @@ public class StationCtrl extends Controller {
     station.readings.remove(reading);
     station.save();
     reading.delete();
-
     redirect("/stations/" + id);
   }
 
@@ -44,7 +41,6 @@ public class StationCtrl extends Controller {
     Station station = Station.findById(id);
     station.readings.add(reading);
     station.save();
-
     redirect("/stations/" + id);
   }
 }

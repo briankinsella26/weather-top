@@ -34,5 +34,4 @@ public class RandomFacts {
     int randomNumber= (int)(Math.random() * (20-1) + 1);
     return randomFacts.get(randomNumber);
   }
-
 }

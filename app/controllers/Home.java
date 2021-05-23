@@ -14,7 +14,6 @@ public class Home extends Controller {
       member = Member.findById(Long.parseLong(memberId));
     }
     String randomFact = RandomFacts.getRandomFact();
-
     render("home.html", member, randomFact);
   }
 }

@@ -5,7 +5,6 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import java.util.ArrayList;
 import java.util.List;
-
 import play.db.jpa.Model;
 
 @Entity
