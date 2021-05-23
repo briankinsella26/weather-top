@@ -27,7 +27,6 @@ public class Dashboard extends Controller {
         station.pressureTrend = StationAnalytics.getWeatherTrendIcon(station.readings, "pressure");
         }
     }
-
     render("dashboard.html", member, stations);
   }
 

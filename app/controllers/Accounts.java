@@ -62,17 +62,9 @@ public class Accounts extends Controller {
     Member member = getLoggedInMember();
     member.firstName = firstName;
     member.lastName = lastName;
-    member.password = password;
-    member.email = email;
-    member.save();
-    redirect("/dashboard");
-  }
-
-  public static void editProfile(String firstName, String lastName, String email) {
-    Logger.info("Editing user: " + email);
-    Member member = getLoggedInMember();
-    member.firstName = firstName;
-    member.lastName = lastName;
+    if(password.length() > 0) {
+      member.password = password;
+    }
     member.email = email;
     member.save();
     redirect("/dashboard");
