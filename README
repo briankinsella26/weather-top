@@ -1,3 +1,37 @@
+Author: Brian Kinsella
+Student number: 16728365
+
+Purpose:
+The purpose of this web application is to provide an interface to compliment a weather station hardware device.
+The application connects to a database for storage and has a back-end and a front end. The web interface allow users interaction with
+the application, to read, write, edit and delete weather data.
+
+Attributes:
+1. User account functionality, signup, login, edit, logout.
+2. Storage and display of data per user
+3. Unlimited stations
+4. Unlimited station readings
+5. Displays latest weather data per station
+6. Displays min/max values for temperature, wind speed and pressure
+7. Displays trends (denoted by up/down arrows) indicating increasing or decreasing values over past 3 readings
+8. Displays weather icons that correspond with a weather code.
+9. About page provide quickstart guide on using the application
+10. Homepage provides landing page UI and a feed of random weather facts
+
+Technologies:
+This application has been built using the play framework - https://www.playframework.com/
+The UI - html/css generation uses the Fomantic-UI development framework - https://fomantic-ui.com/
+The database is on a free tier hosted by - https://www.elephantsql.com/
+The application is deployed and hosted on a free tier by - https://www.heroku.com/home
+Github is our source-code/version control platform - https://github.com/
+
+For local development:
+in application.conf: application.mode=dev (enable)
+                     prod.application.mode=prod (disable)
+
+for local db:   db.default=mem (enable)
+                db.default=postgres://.... (disable)
+
 Sources:
 
 Images:
@@ -10,4 +44,4 @@ https://www.pexels.com/photo/dawn-nature-field-flowers-5180292/
 Weather facts:
 https://www.natgeokids.com/ie/discover/geography/physical-geography/30-freaky-facts-about-weather/
 
-
+This application is a submission for educational purposes only
